@@ -14,7 +14,138 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      interview_results: {
+        Row: {
+          completed_at: string | null
+          feedback: Json | null
+          id: string
+          interview_type: string
+          score: number | null
+          transcript: string | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          feedback?: Json | null
+          id?: string
+          interview_type: string
+          score?: number | null
+          transcript?: string | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          feedback?: Json | null
+          id?: string
+          interview_type?: string
+          score?: number | null
+          transcript?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          cgpa: number | null
+          college: string | null
+          created_at: string | null
+          guardian_name: string | null
+          id: string
+          name: string | null
+          resume_url: string | null
+          tech_stacks: string[] | null
+          university: string | null
+          updated_at: string | null
+          website_links: string[] | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          cgpa?: number | null
+          college?: string | null
+          created_at?: string | null
+          guardian_name?: string | null
+          id: string
+          name?: string | null
+          resume_url?: string | null
+          tech_stacks?: string[] | null
+          university?: string | null
+          updated_at?: string | null
+          website_links?: string[] | null
+        }
+        Update: {
+          avatar_url?: string | null
+          cgpa?: number | null
+          college?: string | null
+          created_at?: string | null
+          guardian_name?: string | null
+          id?: string
+          name?: string | null
+          resume_url?: string | null
+          tech_stacks?: string[] | null
+          university?: string | null
+          updated_at?: string | null
+          website_links?: string[] | null
+        }
+        Relationships: []
+      }
+      resume_analysis: {
+        Row: {
+          analysis_text: string | null
+          ats_score: number | null
+          created_at: string | null
+          id: string
+          resume_url: string
+          suggestions: Json | null
+          user_id: string
+        }
+        Insert: {
+          analysis_text?: string | null
+          ats_score?: number | null
+          created_at?: string | null
+          id?: string
+          resume_url: string
+          suggestions?: Json | null
+          user_id: string
+        }
+        Update: {
+          analysis_text?: string | null
+          ats_score?: number | null
+          created_at?: string | null
+          id?: string
+          resume_url?: string
+          suggestions?: Json | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_progress: {
+        Row: {
+          activity_data: Json | null
+          activity_type: string
+          completed_at: string | null
+          id: string
+          score: number | null
+          user_id: string
+        }
+        Insert: {
+          activity_data?: Json | null
+          activity_type: string
+          completed_at?: string | null
+          id?: string
+          score?: number | null
+          user_id: string
+        }
+        Update: {
+          activity_data?: Json | null
+          activity_type?: string
+          completed_at?: string | null
+          id?: string
+          score?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
