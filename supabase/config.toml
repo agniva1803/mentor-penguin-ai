@@ -1,1 +1,10 @@
 project_id = "rtjwcfduazhbdyzrwmut"
+
+[functions.evaluate-code]
+verify_jwt = false
+
+[functions.generate-aptitude-test]
+verify_jwt = false
+
+[functions.interview-practice]
+verify_jwt = false
