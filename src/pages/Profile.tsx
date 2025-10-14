@@ -57,7 +57,7 @@ export default function Profile() {
         guardian_name: data.guardian_name || "",
         college: data.college || "",
         university: data.university || "",
-        cgpa: data.cgpa || "",
+        cgpa: data.cgpa ? data.cgpa.toString() : "",
         tech_stacks: data.tech_stacks || [],
         website_links: data.website_links || [],
         resume_url: data.resume_url || "",
