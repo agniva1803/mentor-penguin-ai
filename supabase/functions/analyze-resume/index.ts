@@ -19,17 +19,7 @@ serve(async (req) => {
       throw new Error('LOVABLE_API_KEY is not configured');
     }
 
-    const systemPrompt = `You are an expert ATS (Applicant Tracking System) analyzer and resume reviewer. Analyze the provided resume content and provide:
-1. An ATS compatibility score (0-100)
-2. Overall assessment of the resume's strengths and weaknesses
-3. Specific, actionable suggestions for improvement
-
-Format your response as JSON with these fields:
-{
-  "atsScore": number (0-100),
-  "assessment": "string describing overall quality",
-  "suggestions": ["array", "of", "specific", "improvements"]
-}`;
+    const systemPrompt = `You are an expert ATS (Applicant Tracking System) analyzer and resume reviewer. Analyze the provided resume content thoroughly.`;
 
     const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
       method: 'POST',
@@ -41,8 +31,40 @@ Format your response as JSON with these fields:
         model: 'google/gemini-2.5-flash',
         messages: [
           { role: 'system', content: systemPrompt },
-          { role: 'user', content: `Analyze this resume:\n\n${resumeContent}` }
+          { role: 'user', content: `Analyze this resume and provide detailed feedback:\n\n${resumeContent}` }
         ],
+        tools: [
+          {
+            type: "function",
+            function: {
+              name: "analyze_resume",
+              description: "Analyze a resume and provide ATS score and feedback",
+              parameters: {
+                type: "object",
+                properties: {
+                  atsScore: {
+                    type: "number",
+                    description: "ATS compatibility score from 0 to 100"
+                  },
+                  assessment: {
+                    type: "string",
+                    description: "Overall assessment of the resume's strengths and weaknesses"
+                  },
+                  suggestions: {
+                    type: "array",
+                    items: {
+                      type: "string"
+                    },
+                    description: "Specific, actionable suggestions for improvement"
+                  }
+                },
+                required: ["atsScore", "assessment", "suggestions"],
+                additionalProperties: false
+              }
+            }
+          }
+        ],
+        tool_choice: { type: "function", function: { name: "analyze_resume" } }
       }),
     });
 
@@ -53,16 +75,13 @@ Format your response as JSON with these fields:
     }
 
     const data = await response.json();
-    let analysis = data.choices[0].message.content;
-
-    // Extract JSON if wrapped in markdown
-    if (analysis.includes('```json')) {
-      analysis = analysis.split('```json')[1].split('```')[0].trim();
-    } else if (analysis.includes('```')) {
-      analysis = analysis.split('```')[1].split('```')[0].trim();
+    const toolCall = data.choices[0].message.tool_calls?.[0];
+    
+    if (!toolCall) {
+      throw new Error('No analysis returned from AI');
     }
 
-    const result = JSON.parse(analysis);
+    const result = JSON.parse(toolCall.function.arguments);
 
     return new Response(JSON.stringify(result), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
