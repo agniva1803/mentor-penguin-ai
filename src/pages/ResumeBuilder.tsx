@@ -52,20 +52,40 @@ export default function ResumeBuilder() {
 
     setAnalyzing(true);
     try {
-      // Convert file to base64
+      // Read file as text for analysis
       const reader = new FileReader();
-      reader.readAsDataURL(file);
+      reader.readAsText(file);
       
       reader.onload = async () => {
-        const base64 = reader.result as string;
+        const resumeContent = reader.result as string;
         
         const { data, error } = await supabase.functions.invoke("analyze-resume", {
-          body: { resume: base64 }
+          body: { resumeContent }
         });
 
         if (error) throw error;
 
-        setAnalysis(data);
+        // Transform data to match expected format
+        const analysisResult = {
+          ats_score: data.atsScore,
+          analysis_text: data.assessment,
+          suggestions: data.suggestions
+        };
+
+        setAnalysis(analysisResult);
+        
+        // Save to database
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          await supabase.from('resume_analysis').insert({
+            user_id: user.id,
+            resume_url: file.name,
+            ats_score: data.atsScore,
+            analysis_text: data.assessment,
+            suggestions: data.suggestions
+          });
+        }
+        
         toast.success("Resume analyzed successfully!");
       };
     } catch (error: any) {

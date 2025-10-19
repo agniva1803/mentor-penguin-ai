@@ -8,3 +8,15 @@ verify_jwt = false
 
 [functions.interview-practice]
 verify_jwt = false
+
+[functions.career-guidance]
+verify_jwt = false
+
+[functions.analyze-resume]
+verify_jwt = false
+
+[functions.generate-coding-questions]
+verify_jwt = false
+
+[functions.run-code]
+verify_jwt = false

@@ -52,7 +52,7 @@ export default function CareerGuidance() {
 
       if (error) throw error;
 
-      setMessages(prev => [...prev, { role: "assistant", content: data.response }]);
+      setMessages(prev => [...prev, { role: "assistant", content: data.reply }]);
     } catch (error: any) {
       toast.error("Error getting response. Please try again.");
       console.error(error);
