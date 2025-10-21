@@ -6,7 +6,7 @@ import { Brain, FileCheck, Target, TrendingUp, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserAvatar } from "@/components/UserAvatar";
-import mentorPenguin from "@/assets/mentor-penguin.png";
+import penguinxLogo from "@/assets/penguinx-logo.jpeg";
 
 export default function Index() {
   const navigate = useNavigate();
@@ -57,9 +57,9 @@ export default function Index() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src={mentorPenguin} alt="Mentor Pengu" className="h-10 w-10 object-contain" />
+            <img src={penguinxLogo} alt="PenguinX AI" className="h-10 w-10 object-contain" />
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Mentor Pengu
+              PenguinX AI
             </h1>
           </div>
           <div className="flex items-center gap-4">
@@ -79,8 +79,8 @@ export default function Index() {
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
           <img 
-            src={mentorPenguin} 
-            alt="Mentor Pengu Mascot" 
+            src={penguinxLogo} 
+            alt="PenguinX AI Mascot" 
             className="w-64 h-64 mx-auto mb-8 object-contain animate-bounce"
           />
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">
@@ -154,7 +154,7 @@ export default function Index() {
               Ready to Launch Your Career?
             </h3>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join Mentor Pengu today and get personalized AI-powered career guidance
+              Join PenguinX AI today and get personalized AI-powered career guidance
             </p>
             <Button 
               size="lg" 
@@ -171,7 +171,7 @@ export default function Index() {
       {/* Footer */}
       <footer className="py-8 px-4 border-t bg-card/50">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p>© 2025 Mentor Pengu. Powered by AI to help you succeed.</p>
+          <p>© 2025 PenguinX AI. Powered by AI to help you succeed.</p>
         </div>
       </footer>
     </div>
