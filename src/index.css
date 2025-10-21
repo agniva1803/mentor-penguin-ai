@@ -105,7 +105,7 @@ All colors MUST be HSL.
     overflow-x: hidden;
   }
 
-  /* AI Tech Revolution Background */
+  /* AI Tech World Background - Layer 1: Base gradient orbs */
   body::before {
     content: '';
     position: fixed;
@@ -113,17 +113,33 @@ All colors MUST be HSL.
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2;
+    z-index: -3;
     background: 
-      radial-gradient(circle at 15% 50%, hsl(200 100% 50% / 0.15) 0%, transparent 25%),
-      radial-gradient(circle at 85% 20%, hsl(180 90% 45% / 0.15) 0%, transparent 25%),
-      radial-gradient(circle at 50% 80%, hsl(190 80% 50% / 0.12) 0%, transparent 30%),
-      linear-gradient(135deg, transparent 40%, hsl(200 100% 50% / 0.05) 50%, transparent 60%);
-    animation: cosmicShift 30s ease-in-out infinite;
+      radial-gradient(ellipse at 10% 20%, hsl(200 100% 50% / 0.2) 0%, transparent 40%),
+      radial-gradient(ellipse at 90% 80%, hsl(180 90% 45% / 0.2) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, hsl(190 80% 50% / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, hsl(200 100% 60% / 0.1) 0%, transparent 30%);
+    animation: aiPulse 15s ease-in-out infinite;
   }
 
-  /* Animated particles layer */
+  /* Layer 2: Hexagonal tech grid */
   body::after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: -2;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 60px, hsl(200 100% 50% / 0.03) 60px, hsl(200 100% 50% / 0.03) 61px),
+      repeating-linear-gradient(60deg, transparent, transparent 60px, hsl(180 90% 45% / 0.03) 60px, hsl(180 90% 45% / 0.03) 61px),
+      repeating-linear-gradient(-60deg, transparent, transparent 60px, hsl(190 80% 50% / 0.03) 60px, hsl(190 80% 50% / 0.03) 61px);
+    animation: hexRotate 120s linear infinite;
+  }
+
+  /* Layer 3: Neural network nodes and particles */
+  #root::before {
     content: '';
     position: fixed;
     top: 0;
@@ -131,55 +147,106 @@ All colors MUST be HSL.
     width: 100%;
     height: 100%;
     z-index: -1;
+    pointer-events: none;
     background-image: 
-      repeating-linear-gradient(45deg, transparent, transparent 100px, hsl(200 100% 50% / 0.02) 100px, hsl(200 100% 50% / 0.02) 101px),
-      repeating-linear-gradient(-45deg, transparent, transparent 100px, hsl(180 90% 45% / 0.02) 100px, hsl(180 90% 45% / 0.02) 101px),
-      radial-gradient(circle at 30% 40%, hsl(200 100% 50% / 0.03) 0%, transparent 1%),
-      radial-gradient(circle at 70% 60%, hsl(180 90% 45% / 0.03) 0%, transparent 1%),
-      radial-gradient(circle at 50% 30%, hsl(190 80% 50% / 0.03) 0%, transparent 1%);
-    background-size: 200px 200px, 200px 200px, 3px 3px, 4px 4px, 2px 2px;
-    background-position: 0 0, 0 0, 0 0, 50px 50px, 30px 30px;
-    animation: particleFlow 60s linear infinite;
+      radial-gradient(circle at 20% 30%, hsl(200 100% 60% / 0.4) 0%, transparent 2px),
+      radial-gradient(circle at 80% 70%, hsl(180 90% 50% / 0.4) 0%, transparent 2px),
+      radial-gradient(circle at 50% 50%, hsl(190 80% 55% / 0.4) 0%, transparent 2px),
+      radial-gradient(circle at 70% 20%, hsl(200 100% 60% / 0.3) 0%, transparent 2px),
+      radial-gradient(circle at 30% 80%, hsl(180 90% 50% / 0.3) 0%, transparent 2px),
+      radial-gradient(circle at 90% 40%, hsl(190 80% 55% / 0.3) 0%, transparent 2px),
+      radial-gradient(circle at 15% 60%, hsl(200 100% 60% / 0.3) 0%, transparent 2px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    animation: nodesPulse 8s ease-in-out infinite;
+  }
+
+  /* Layer 4: Circuit lines connecting nodes */
+  #root::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(135deg, transparent 20%, hsl(200 100% 50% / 0.1) 30%, transparent 31%, transparent 50%, hsl(180 90% 45% / 0.08) 70%, transparent 71%),
+      linear-gradient(-45deg, transparent 30%, hsl(190 80% 50% / 0.08) 50%, transparent 51%);
+    background-size: 400px 400px;
+    animation: circuitFlow 20s linear infinite;
   }
 
   .dark body::before {
     background: 
-      radial-gradient(circle at 15% 50%, hsl(200 100% 50% / 0.25) 0%, transparent 25%),
-      radial-gradient(circle at 85% 20%, hsl(180 90% 45% / 0.25) 0%, transparent 25%),
-      radial-gradient(circle at 50% 80%, hsl(190 80% 50% / 0.2) 0%, transparent 30%),
-      linear-gradient(135deg, transparent 40%, hsl(200 100% 50% / 0.1) 50%, transparent 60%);
+      radial-gradient(ellipse at 10% 20%, hsl(200 100% 50% / 0.3) 0%, transparent 40%),
+      radial-gradient(ellipse at 90% 80%, hsl(180 90% 45% / 0.3) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, hsl(190 80% 50% / 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, hsl(200 100% 60% / 0.2) 0%, transparent 30%);
   }
 
   .dark body::after {
     background-image: 
-      repeating-linear-gradient(45deg, transparent, transparent 100px, hsl(200 100% 50% / 0.04) 100px, hsl(200 100% 50% / 0.04) 101px),
-      repeating-linear-gradient(-45deg, transparent, transparent 100px, hsl(180 90% 45% / 0.04) 100px, hsl(180 90% 45% / 0.04) 101px),
-      radial-gradient(circle at 30% 40%, hsl(200 100% 50% / 0.06) 0%, transparent 1%),
-      radial-gradient(circle at 70% 60%, hsl(180 90% 45% / 0.06) 0%, transparent 1%),
-      radial-gradient(circle at 50% 30%, hsl(190 80% 50% / 0.06) 0%, transparent 1%);
+      repeating-linear-gradient(0deg, transparent, transparent 60px, hsl(200 100% 50% / 0.06) 60px, hsl(200 100% 50% / 0.06) 61px),
+      repeating-linear-gradient(60deg, transparent, transparent 60px, hsl(180 90% 45% / 0.06) 60px, hsl(180 90% 45% / 0.06) 61px),
+      repeating-linear-gradient(-60deg, transparent, transparent 60px, hsl(190 80% 50% / 0.06) 60px, hsl(190 80% 50% / 0.06) 61px);
   }
 
-  @keyframes cosmicShift {
+  .dark #root::before {
+    background-image: 
+      radial-gradient(circle at 20% 30%, hsl(200 100% 60% / 0.6) 0%, transparent 2px),
+      radial-gradient(circle at 80% 70%, hsl(180 90% 50% / 0.6) 0%, transparent 2px),
+      radial-gradient(circle at 50% 50%, hsl(190 80% 55% / 0.6) 0%, transparent 2px),
+      radial-gradient(circle at 70% 20%, hsl(200 100% 60% / 0.5) 0%, transparent 2px),
+      radial-gradient(circle at 30% 80%, hsl(180 90% 50% / 0.5) 0%, transparent 2px),
+      radial-gradient(circle at 90% 40%, hsl(190 80% 55% / 0.5) 0%, transparent 2px),
+      radial-gradient(circle at 15% 60%, hsl(200 100% 60% / 0.5) 0%, transparent 2px);
+  }
+
+  .dark #root::after {
+    background-image:
+      linear-gradient(135deg, transparent 20%, hsl(200 100% 50% / 0.15) 30%, transparent 31%, transparent 50%, hsl(180 90% 45% / 0.12) 70%, transparent 71%),
+      linear-gradient(-45deg, transparent 30%, hsl(190 80% 50% / 0.12) 50%, transparent 51%);
+  }
+
+  @keyframes aiPulse {
     0%, 100% {
-      transform: scale(1) rotate(0deg);
+      transform: scale(1);
       opacity: 1;
     }
-    33% {
-      transform: scale(1.1) rotate(2deg);
+    50% {
+      transform: scale(1.05);
       opacity: 0.9;
-    }
-    66% {
-      transform: scale(1.05) rotate(-2deg);
-      opacity: 0.95;
     }
   }
 
-  @keyframes particleFlow {
+  @keyframes hexRotate {
     0% {
-      background-position: 0 0, 0 0, 0 0, 50px 50px, 30px 30px;
+      transform: rotate(0deg) scale(1);
     }
     100% {
-      background-position: 200px 200px, -200px -200px, 100px 100px, 150px 150px, 130px 130px;
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  @keyframes nodesPulse {
+    0%, 100% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+    50% {
+      opacity: 0.7;
+      filter: blur(1px);
+    }
+  }
+
+  @keyframes circuitFlow {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 400px 400px;
     }
   }
 
