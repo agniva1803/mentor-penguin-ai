@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserAvatar } from "@/components/UserAvatar";
 import { toast } from "sonner";
-import mentorPenguin from "@/assets/mentor-penguin.png";
+import penguinxLogo from "@/assets/penguinx-logo.jpeg";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -88,7 +88,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <img src={mentorPenguin} alt="Loading" className="w-32 h-32 mx-auto mb-4 animate-bounce" />
+          <img src={penguinxLogo} alt="Loading" className="w-32 h-32 mx-auto mb-4 object-cover rounded-full ring-4 ring-primary/30 shadow-glow animate-float" />
           <p className="text-muted-foreground">Loading your dashboard...</p>
         </div>
       </div>
@@ -101,9 +101,9 @@ export default function Dashboard() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <img src={mentorPenguin} alt="Mentor Pengu" className="h-10 w-10 object-contain" />
+            <img src={penguinxLogo} alt="PenguinX AI" className="h-10 w-10 object-cover rounded-full ring-2 ring-primary/20" />
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Mentor Pengu
+              PenguinX AI
             </h1>
           </div>
           <div className="flex items-center gap-4">

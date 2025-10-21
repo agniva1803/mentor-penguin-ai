@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserAvatar } from "@/components/UserAvatar";
 import { toast } from "sonner";
-import mentorPenguin from "@/assets/mentor-penguin.png";
+import penguinxLogo from "@/assets/penguinx-logo.jpeg";
 
 interface Message {
   role: "user" | "assistant";
@@ -67,7 +67,7 @@ export default function CareerGuidance() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <img src={mentorPenguin} alt="Mentor Pengu" className="h-10 w-10 object-contain" />
+            <img src={penguinxLogo} alt="PenguinX AI" className="h-10 w-10 object-cover rounded-full ring-2 ring-primary/20" />
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               AI Career Guidance
             </h1>
@@ -88,7 +88,7 @@ export default function CareerGuidance() {
           <div className="flex-1 overflow-y-auto space-y-4 mb-4">
             {messages.length === 0 && (
               <div className="text-center py-12">
-                <img src={mentorPenguin} alt="Mentor Pengu" className="w-32 h-32 mx-auto mb-4" />
+                <img src={penguinxLogo} alt="PenguinX AI" className="w-32 h-32 mx-auto mb-4 object-cover rounded-full ring-4 ring-primary/30 shadow-glow" />
                 <h3 className="text-xl font-semibold mb-2">Ask me anything about your career!</h3>
                 <p className="text-muted-foreground">
                   I'm here to help with career guidance, skill development, interview prep, and more.

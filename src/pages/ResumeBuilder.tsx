@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserAvatar } from "@/components/UserAvatar";
 import { toast } from "sonner";
-import mentorPenguin from "@/assets/mentor-penguin.png";
+import penguinxLogo from "@/assets/penguinx-logo.jpeg";
 
 export default function ResumeBuilder() {
   const navigate = useNavigate();
@@ -102,7 +102,7 @@ export default function ResumeBuilder() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <img src={mentorPenguin} alt="Mentor Pengu" className="h-10 w-10 object-contain" />
+            <img src={penguinxLogo} alt="PenguinX AI" className="h-10 w-10 object-cover rounded-full ring-2 ring-primary/20" />
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               Resume Builder & ATS Score
             </h1>
@@ -180,7 +180,7 @@ export default function ResumeBuilder() {
             
             {!analysis ? (
               <div className="text-center py-12">
-                <img src={mentorPenguin} alt="Waiting" className="w-32 h-32 mx-auto mb-4 opacity-50" />
+                <img src={penguinxLogo} alt="Waiting" className="w-32 h-32 mx-auto mb-4 object-cover rounded-full ring-4 ring-primary/20 opacity-50" />
                 <p className="text-muted-foreground">
                   Upload and analyze your resume to see results
                 </p>
