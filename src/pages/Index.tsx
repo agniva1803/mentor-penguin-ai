@@ -57,7 +57,7 @@ export default function Index() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src={penguinxLogo} alt="PenguinX AI" className="h-10 w-10 object-contain" />
+            <img src={penguinxLogo} alt="PenguinX AI" className="h-10 w-10 object-cover rounded-full ring-2 ring-primary/20" />
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               PenguinX AI
             </h1>
@@ -81,7 +81,7 @@ export default function Index() {
           <img 
             src={penguinxLogo} 
             alt="PenguinX AI Mascot" 
-            className="w-64 h-64 mx-auto mb-8 object-contain animate-bounce"
+            className="w-64 h-64 mx-auto mb-8 object-cover rounded-full ring-4 ring-primary/30 shadow-glow animate-float"
           />
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-hero bg-clip-text text-transparent">
             Your AI-Powered Career Coach
