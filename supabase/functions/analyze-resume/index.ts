@@ -19,7 +19,16 @@ serve(async (req) => {
       throw new Error('LOVABLE_API_KEY is not configured');
     }
 
-    const systemPrompt = `You are an expert ATS (Applicant Tracking System) analyzer and resume reviewer. Analyze the provided resume content thoroughly.`;
+    const systemPrompt = `You are an expert ATS (Applicant Tracking System) analyzer and resume reviewer with a balanced, fair approach. 
+    
+    Scoring Guidelines:
+    - 90-100: Exceptional resume with excellent ATS compatibility, strong keywords, and professional formatting
+    - 80-89: Very good resume with solid structure, good keywords, and minor improvements needed
+    - 70-79: Good resume with decent formatting, needs some keyword optimization
+    - 60-69: Average resume that needs moderate improvements
+    - Below 60: Significant improvements needed
+    
+    Be fair and constructive. Acknowledge strengths while suggesting improvements. Most professionally written resumes should score between 70-90.`;
 
     const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
       method: 'POST',
