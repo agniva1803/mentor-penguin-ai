@@ -143,7 +143,7 @@ penguinx-ai/
 7. **Mock Interviews**: Simulate real interview scenarios
 8. **Track Progress**: Monitor your improvement over time
 
-### For Developers
+#### For Developers
 
 1. **Add New Features**: Create components in `src/components/`
 2. **Add New Pages**: Create page components in `src/pages/`
