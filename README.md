@@ -223,4 +223,3 @@ For questions or support, please:
 
 ---
 
-Made with ❤️ using [Lovable](https://lovable.dev)
