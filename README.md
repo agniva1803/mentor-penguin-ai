@@ -46,11 +46,11 @@ An AI-powered career guidance and placement preparation platform designed to hel
 - **Frontend**: React 18 + TypeScript
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS + shadcn/ui components
-- **Backend**: Lovable Cloud (Supabase)
+- **Backend**: Google Cloud (Supabase)
 - **Authentication**: Supabase Auth
 - **Database**: PostgreSQL (via Supabase)
 - **Edge Functions**: Deno serverless functions
-- **AI Integration**: Lovable AI Gateway (GPT-5, Gemini 2.5)
+- **AI Integration**:Gemni AI Gateway (GPT-5, Gemini 2.5)
 - **Routing**: React Router v6
 - **State Management**: React Query (TanStack Query)
 - **Forms**: React Hook Form + Zod validation
@@ -199,27 +199,20 @@ The code is standard React/Vite and can be deployed to:
 
 ## 📝 License
 
-This project is built with [Lovable](https://lovable.dev) and is licensed under the MIT License.
+This project is built by [Agniva Mukherjee](https://my-portfolio-lime-ten-66.vercel.app/) and is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
-
-- Built with [Lovable](https://lovable.dev)
 - UI components from [shadcn/ui](https://ui.shadcn.com)
 - Icons from [Lucide](https://lucide.dev)
-- Powered by [Lovable Cloud](https://docs.lovable.dev/features/cloud)
+- Powered by [Google Cloud](https://console.cloud.google.com/apis/api/logging.googleapis.com/metrics?project=lustrous-gamma-461922-m9)
 
-## 📞 Support
 
-For questions or support, please:
-- Check the [Lovable Documentation](https://docs.lovable.dev)
-- Join the [Lovable Discord Community](https://discord.com/channels/1119885301872070706/1280461670979993613)
-- Open an issue in this repository
 
 ## 🔗 Links
 
-- **Live Demo**: [Your deployed URL]
-- **Lovable Project**: https://lovable.dev/projects/276fbcf3-fcc3-487f-9517-ab3d447fa1f3
-- **Documentation**: https://docs.lovable.dev
+- **Live Demo**: [mentor-penguin-ai.vercel.app]
+  
+
 
 ---
 
